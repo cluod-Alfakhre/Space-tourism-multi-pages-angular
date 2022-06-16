@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=Bellefair&display=swap');
+:root{
+    --hover-gray:#979797;
+    --pale-blue: #d0d6f9;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Barlow Condensed', sans-serif;
+}
+ul{
+    list-style: none;
+}
+img{
+    max-width: 100%;
+}
+section.container{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 7rem;
+}
+@media(max-width:1000px){
+    main{
+        overflow: hidden;
+    }
+    section.container{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

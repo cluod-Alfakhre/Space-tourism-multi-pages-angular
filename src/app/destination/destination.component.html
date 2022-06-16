@@ -1,0 +1,42 @@
+<section class="container">
+
+    <div class="img">
+
+        <p>01 PICK YOUR DESTINATION</p>
+        <img class="first-animate" [src]="currentObj.images.png" alt="destination image">
+
+    </div>
+
+    <div class="navigation">
+
+        <ul class="list">
+            <li class="Moon active"><a routerLink="/destination" [queryParams]="{obj:'Moon'}">MOON</a></li>
+            <li class="Mars"><a routerLink="/destination" [queryParams]="{obj:'Mars'}">MARS</a></li>
+            <li class="Europa"><a routerLink="/destination" [queryParams]="{obj:'Europa'}">EUROPA</a></li>
+            <li class="TITAN"><a routerLink="/destination" [queryParams]="{obj:'Titan'}">TITAN</a></li>
+        </ul>
+
+        <div class="text">
+
+            <h1 class="name">{{currentObj.name}}</h1>
+            <p class="description">{{currentObj.description}}</p>
+
+            <div class="data">
+
+                <div class="distance">
+                    <p>AVG. DISTANCE</p>
+                    <h2>{{currentObj.distance}}</h2>
+                </div>
+
+                <div class="time">
+                    <p>EST. TRAVEL TIME</p>
+                    <h2>{{currentObj.travel}}</h2>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,27 @@
+<section class="container">
+
+    <div class="navigation">
+
+        <p>03 SPACE LAUNCH 101</p>
+
+        <div class="wrapper">
+            <ul class="bullets">
+                <li class="Launch active"><a routerLink="/technology" [queryParams]="{obj:'Launch vehicle'}">1</a></li>
+                <li class="Spaceport"><a routerLink="/technology" [queryParams]="{obj:'Spaceport'}">2</a></li>
+                <li class="Space "><a routerLink="/technology" [queryParams]="{obj:'Space capsule'}">3</a></li>
+            </ul>
+            <div class="text">
+                <p>THE TERMINOLOGY ...</p>
+                <h1 class="tech-name">{{currentObj.name}}</h1>
+                <article class="article">
+                    {{currentObj.description}}
+                </article>
+            </div>
+        </div>
+        
+    </div>
+    <div class="img">
+        <img [src]="currentObj.images.portrait" alt="technology" *ngIf="!changeImg">
+        <img [src]="currentObj.images.landscape" alt="technology" *ngIf="changeImg">
+    </div>
+</section>

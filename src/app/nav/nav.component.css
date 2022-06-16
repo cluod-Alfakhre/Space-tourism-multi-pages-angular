@@ -1,0 +1,137 @@
+nav{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: absolute;
+    width: 95%;
+    top: 40px;
+    max-width: 1385px;
+    right: 11px;
+}
+.logo{
+    position: relative;
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+.logo img{
+    transition: .2s;
+}
+.logo:hover img{
+    transform: scale(.9);
+}
+.logo::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 443px;;
+    background-color: rgba(151, 151, 151, 0.5);
+    left: 113px;
+    z-index: 1;
+}
+.nav-list{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+    background-color: rgba(151, 151, 151, 0.1);
+    backdrop-filter: blur(8px);
+    width: 80%;
+    max-width: 850px;
+    padding-left: 106px;
+    padding-right: 115px;
+}
+.nav-list li a{
+    display: block;
+    color: white;
+    padding: 2.344rem 0;
+    text-decoration: none;
+    border-bottom: solid 2px transparent;
+    transition: .2s;
+    font-size: 1rem;
+    letter-spacing: 2.7px;
+}
+.nav-list li a:hover{
+    border-color: var(--hover-gray);
+}
+.nav-list li.active a{
+    border-color: white;
+}
+.open{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    display: none;
+}
+.close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:1024px){
+    .logo::after{
+        width: 200px;
+    }
+}
+@media(max-width:1000px){
+    nav{
+        top: 0;
+    }
+    .logo::after{
+        width: 200px;
+        display: none;
+    }
+    .nav-list{
+        padding: 0;
+        gap: 1rem;
+    }
+    .nav-list li span{
+        display: none;
+    }
+}
+@media(max-width:600px){
+    nav{
+        padding: 1rem 0;
+    }
+    .nav-list{
+        position: fixed;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 60%;
+        z-index: 1;
+        padding-top: 5rem;
+        transition: .3s;
+    }
+    .nav-list.active{
+        right: 0;
+    }
+    .nav-list li a{
+        padding-left: 2rem;
+    }
+    .nav-list li.active a, .nav-list li a:hover{
+        border-bottom-color: transparent;
+        background-color: rgb(255 255 255 / 5%);
+    }
+    .nav-list li span{
+        display: inline;
+    }
+    .open,.close{
+        display: block;
+    }
+    .toggle.active .open{
+        display: none;
+    }
+}

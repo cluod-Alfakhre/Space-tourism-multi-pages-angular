@@ -1,0 +1,142 @@
+section.container{
+    background-image: url(/assets/technology/background-technology-desktop.jpg);
+    justify-items: center;
+    padding-top: 8rem;
+    grid-template-columns: 1fr .7fr;
+}
+.navigation{
+    justify-self: flex-end;
+    display: grid;
+    gap: 3rem;
+}
+.navigation >p{
+    font-family: "Barlow Condensed";
+    font-size: 26px;
+    letter-spacing: 4.75px;
+    color: var(--pale-blue);
+}
+.wrapper{
+    max-width: 610px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+
+.navigation .text p{
+    font-size: 16px;
+    letter-spacing: 2.7px;
+    color: #d0d6f9;
+}
+.navigation .text h1{
+    font-family: "Bellefair";
+    font-size: 56px;
+    font-weight: normal;
+    color: white;
+    padding-bottom: 1.5rem;
+}
+.navigation .text .article{
+    font-family: "Barlow Condensed";
+    font-size: 18px;
+    color: var(--pale-blue);
+    line-height: 30px;
+    letter-spacing: 1px;
+    min-height: 150px;
+}
+.navigation .bullets{
+    display: grid;
+    align-content: space-between;
+    height: 100%;
+}
+.navigation .bullets li a{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    border: solid 1px rgba(151, 151, 151, 0.5);
+    text-decoration: none;
+    transition: .2s;
+    font-family: "Barlow-Condensed";
+    font-size: 25px;
+}
+.navigation .bullets li.active a{
+    color: black;
+    background-color: white;
+}
+.navigation .bullets li:hover a{
+    border: solid 1px white;
+}
+.img{
+    justify-self: flex-end;
+}
+.img img{
+    max-width: 400px;
+    width: 100%;
+}
+
+@media(max-width:1000px){
+    section.container{
+        grid-template-columns: 1fr;
+    }
+    .navigation{
+        justify-self: center;
+        order: 1;
+        padding: 2rem;
+    }
+    .navigation >p{
+        position: absolute;
+        width: fit-content;
+        top: 6rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+    }
+    .navigation .text {
+        order: 1;
+        text-align: center;
+    }
+    .navigation .text h1{
+        font-size: 40px;
+    }
+    .navigation .text .article{
+        font-size: 16px;
+    }
+    .navigation .bullets{
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+    }
+    .img{
+        justify-self: stretch;
+        text-align: center;
+    }
+    .img img{
+        max-width: 780px;
+    }
+}
+@media(max-width:600px){
+    .navigation >p{
+        font-size: 20px;
+    }
+    .navigation .text .article{
+        min-height: 210px;
+
+    }
+    
+}
+@media(max-width:375px){
+    .img{
+        justify-self: center;
+        width: auto;
+    }
+    .navigation{
+        padding: 0;
+        justify-self: center;
+    }
+}

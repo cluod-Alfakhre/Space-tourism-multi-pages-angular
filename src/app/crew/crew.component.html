@@ -1,0 +1,20 @@
+<section class="container">
+    <div class="navigation">
+        <p>02 MEET YOUR CREW</p>
+        <div class="text-content">
+            <h2 class="role">{{currentObj.role}}</h2>
+            <h1 class="name">{{currentObj.name}}</h1>
+            <article class="article"> {{currentObj.bio}} </article>
+        </div>
+        <ul class="bullets">
+            <li class="Commander active"><a routerLink="/crew" [queryParams]="{obj:'Commander'}"></a></li>
+            <li class="Specialist"><a routerLink="/crew" [queryParams]="{obj:'Specialist'}"></a></li>
+            <li class="Pilot"><a routerLink="/crew" [queryParams]="{obj:'Pilot'}"></a></li>
+            <li class="Engineer"><a routerLink="/crew" [queryParams]="{obj:'Engineer'}"></a></li>
+        </ul>
+    </div>
+
+    <div class="img">
+        <img [src]='currentObj.images.png' alt="commander">
+    </div>
+</section>
