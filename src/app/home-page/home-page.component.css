@@ -1,7 +1,7 @@
 section.container{
     background-image: url(/assets/home/background-home-desktop.jpg); /* the slash "/" at the begining is important */
     justify-items: center;
-    padding-top: 17rem;
+    padding-top: 12rem;
 }
 .text{
     max-width: 450px;
