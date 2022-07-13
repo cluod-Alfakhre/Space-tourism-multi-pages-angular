@@ -27,10 +27,15 @@ export class CrewComponent implements OnInit, OnDestroy {
   constructor(private mainService:MainService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.subs=this.mainService.getData().subscribe( (res:any)=>{
+      
       this.componentArray=res.crew;
+
       this.setCurrentObj();
+
     })
+
   }
 
   setCurrentObj(){
@@ -44,8 +49,6 @@ export class CrewComponent implements OnInit, OnDestroy {
         this.animateImg('in');
         this.activeBullets(qp.obj);
 
-      }else{
-        this.animateImg('in');
       }
 
     })
@@ -86,11 +89,12 @@ export class CrewComponent implements OnInit, OnDestroy {
   };
 
   activeBullets(theClass:string){
-    document.querySelectorAll('.bullets li').forEach(el => el.classList.remove('active'))
-    document.querySelector('.'+theClass)!.classList.add('active')
+    document.querySelectorAll('.bullets li').forEach(el => el.classList.remove('active'));
+    document.querySelector('.'+theClass)!.classList.add('active');
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
+  
 }

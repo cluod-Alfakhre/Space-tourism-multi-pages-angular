@@ -1,9 +1,12 @@
-import { OnDestroy, Component, ElementRef, OnInit } from '@angular/core';
-import { MainService } from '../main.service';
-import { mainDataModel } from '../models/mainData.model';
+import { OnDestroy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlanetModel } from '../models/planet.model';
+
 import { Subscription } from 'rxjs';
+
+import { MainService } from '../main.service';
+
+import { PlanetModel } from '../models/planet.model';
+import { mainDataModel } from '../models/mainData.model';
 
 @Component({
   selector: 'app-destination',
@@ -13,7 +16,9 @@ import { Subscription } from 'rxjs';
 export class DestinationComponent implements OnInit, OnDestroy {
 
   subs!:Subscription;
+
   componentArray!:[];
+
   currentObj:PlanetModel={//to avoid errors of undefined i set initial values to the properies
     name:'Moon',
     images:{png:'./assets/destination/image-moon.png',webp:''},
@@ -21,7 +26,7 @@ export class DestinationComponent implements OnInit, OnDestroy {
     distance:'384,400 km',
     travel:'3 days'};
 
-  constructor(private mainService:MainService, private route:ActivatedRoute,private elem: ElementRef) { 
+  constructor(private mainService:MainService, private route:ActivatedRoute) { 
     
   }
 
@@ -33,17 +38,22 @@ export class DestinationComponent implements OnInit, OnDestroy {
   }
   
   setCurrentObj(){
-    this.route.queryParams.subscribe(async (qp: {}) => {
+    this.route.queryParams.subscribe( (qp: {}) => {
+
       if(!!qp['obj' as keyof {}]){
 
-        this.animateImg('out');//the old img to be out animate
+        this.animateImg('out');//the old img to be out animate before i set a new object with new img
+
         this.currentObj =this.componentArray.filter((el: any) => el.name == qp['obj' as keyof {}])[0];
-        this.ActivePlanentNav(this.currentObj.name)
-        this.animateImg('in');//the new img to be in animate
-      }else{
-        this.animateImg('in');
+
+        this.ActivePlanentNav(this.currentObj.name);
+
+        this.animateImg('in');//the new img to be in animate after setting the new object
+
       }
+
     })
+
   };
 
   animateImg(direction:string){
@@ -87,4 +97,5 @@ export class DestinationComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
+  
 }

@@ -24,14 +24,20 @@ export class TechnologyComponent implements OnInit, OnDestroy {
     "description": "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
   };
 
-  changeImg:boolean=false;
+  changeImg:boolean=false;// attached to the html (if its true then you are in the mobile screen so change the img)
+
   constructor(private mainService:MainService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.windowResize();
+
     window.addEventListener('resize',()=>{
+
       this.windowResize();
+
     })
+
     this.subs=this.mainService.getData().subscribe((res:any)=>{
       this.componentArray=res.technology;
       this.getCurrentObj();
@@ -95,10 +101,6 @@ export class TechnologyComponent implements OnInit, OnDestroy {
 
     }
   };
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
-  }
   
   windowResize(){
       if( document.documentElement.clientWidth <= 1000 ){
@@ -106,6 +108,10 @@ export class TechnologyComponent implements OnInit, OnDestroy {
       }else{
         this.changeImg=false;
       }
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

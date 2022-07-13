@@ -83,6 +83,7 @@ section.container{
         top: 6rem;
         left: 50%;
         transform: translateX(-50%);
+        width: fit-content;
     }
     .img{
         position: relative;

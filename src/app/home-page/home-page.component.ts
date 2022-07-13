@@ -14,10 +14,16 @@ export class HomePageComponent implements OnInit {
   }
 
   buttonClick(){
+
      document.querySelector('.navigation-side')?.classList.add('animate');
+
      setTimeout(() => {
+
       this.router.navigate(['destination']);
       document.querySelector('.navigation-side')?.classList.remove('animate');
+
      }, 700);
+
   }
+  
 }

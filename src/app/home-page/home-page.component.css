@@ -29,7 +29,6 @@ section.container{
 .navigation-side{
     position: relative;
     margin-left: 6rem;
-    margin-top: 3rem;
 }
 .navigation-side.animate{
     animation: 0.75s rotate linear forwards;
@@ -91,5 +90,17 @@ section.container{
     }
     .text p:last-of-type{
         font-size: 16px;
+    }
+    .navigation-side{
+        margin: 0;
+        margin-bottom: 3rem;
+    }
+    .btn-navigation{
+        height: 210px;
+        width: 210px;
+    }
+    .navigation-side:hover::before{
+        width: calc(100% + 50px);
+        height: calc(100% + 50px);
     }
 }
